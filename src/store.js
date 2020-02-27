@@ -1,7 +1,6 @@
 import {action, computed, thunk} from "easy-peasy";
-import cloneDeep from 'lodash/cloneDeep';
 
-const editorModel = {
+const editorModel = () => ({
     criteria: '',
     products: [],
     searching: false,
@@ -32,11 +31,11 @@ const editorModel = {
     _setProducts: action((state, payload) => {
         state.products = payload
     }),
-};
+});
 
 const storeModel = {
-    left: {...editorModel},
-    right: {...editorModel},
+    left: editorModel(),
+    right:  editorModel(),
 };
 
 export default storeModel;
